@@ -1,0 +1,5 @@
+sizes:
+  - name: iphone-settings2x
+    dimension: 58
+  - name: iphone-settings3x
+    dimension: 87
