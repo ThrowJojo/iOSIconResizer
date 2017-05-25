@@ -45,4 +45,9 @@ void main() {
     expect(exists, true);
   });
 
+  test('getPath', () {
+    String path = Helpers.getPath();
+    expect(path.contains("/test"), true);
+  });
+
 }

@@ -14,3 +14,6 @@ dependencies:
 
 dev_dependencies:
   test: ^0.12.0
+
+executables:
+  resize_icon_ios: main

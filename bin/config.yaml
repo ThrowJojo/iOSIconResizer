@@ -3,3 +3,35 @@ sizes:
     dimension: 58
   - name: iphone-settings3x
     dimension: 87
+  - name: iphone-spotlight2x
+    dimension: 80
+  - name: iphone-spotlight3x
+    dimension: 120
+  - name: iphone-app2x
+    dimension: 120
+  - name: iphone-app3x
+    dimension: 180
+  - name: ipad-settings1x
+    dimension: 29
+  - name: ipad-settings2x
+    dimension: 58
+  - name: ipad-spotlight1x
+    dimension: 40
+  - name: ipad-spotlight2x
+    dimension: 80
+  - name: ipad-app1x
+    dimension: 76
+  - name: ipad-app2x
+    dimension: 152
+  - name: iphone-notification2x
+    dimension: 40
+  - name: iphone-notification3x
+    dimension: 60
+  - name: ipad-notification1x
+    dimension: 20
+  - name: ipad-notification2x
+    dimension: 40
+  - name: ipad-pro2x
+    dimension: 167
+  - name: store-icon
+    dimension: 1024

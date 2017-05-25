@@ -33,6 +33,13 @@ class Helpers {
     }
   }
 
+  // Resizes @{imaged} based on list of @{iconSizes}
+  static resizeImageToSizes(Image image, List<IconSize> iconSizes) {
+    for (IconSize iconSize in iconSizes) {
+      resizeImageAndSave(image, iconSize);
+    }
+  }
+
   // Resizes the provided @{image} and then saves it
   static resizeImageAndSave(Image image, IconSize iconSize) {
     Image resizedImage = copyResize(image, iconSize.dimension);
@@ -47,6 +54,11 @@ class Helpers {
     } catch (e) {
       print(e);
     }
+  }
+
+  // Gets path for current script
+  static String getPath() {
+    return dirname(Platform.script.path.toString());
   }
 
 }
