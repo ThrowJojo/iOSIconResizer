@@ -50,4 +50,11 @@ void main() {
     expect(path.contains("/test"), true);
   });
 
+  test('createDirectory', () async {
+      Helpers.createDirectory("blah");
+      bool exists = await new Directory("blah").exists();
+      expect(exists, true);
+      new Directory("blah").delete(recursive: true);
+  });
+
 }

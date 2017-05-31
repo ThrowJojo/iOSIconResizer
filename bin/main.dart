@@ -13,14 +13,16 @@ main(List<String> arguments) {
   parser.addOption('icon');
   var results = parser.parse(arguments);
   String icon = results['icon'];
+  String folder = results['folder'];
 
   if (icon != null) {
     Image loadedImage = Helpers.loadImage(icon);
     if (loadedImage != null) {
       String path = Helpers.getPath();
       List<IconSize> iconSizes = Helpers.loadIconSizes("${path}/config.yaml");
-      Helpers.resizeImageToSizes(loadedImage, iconSizes);
-      Helpers.copyFile("${path}/Contents.json", "Contents.json");
+      Helpers.resizeImageToSizes(loadedImage, iconSizes, folderPath: folder);
+      String contentsPath = (folder != null) ? "${folder}/Contents.json" : "Contents.json";
+      Helpers.copyFile("${path}/Contents.json", contentsPath);
     } else {
       print("There was an issue loading the specified icon file, make sure it exists.");
     }

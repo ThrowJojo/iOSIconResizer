@@ -34,16 +34,18 @@ class Helpers {
   }
 
   // Resizes @{imaged} based on list of @{iconSizes}
-  static resizeImageToSizes(Image image, List<IconSize> iconSizes) {
+  static resizeImageToSizes(Image image, List<IconSize> iconSizes, {folderPath: String}) {
+    if (folderPath != null) createDirectory(folderPath);
     for (IconSize iconSize in iconSizes) {
-      resizeImageAndSave(image, iconSize);
+      resizeImageAndSave(image, iconSize, folderPath: folderPath);
     }
   }
 
   // Resizes the provided @{image} and then saves it
-  static resizeImageAndSave(Image image, IconSize iconSize) {
+  static resizeImageAndSave(Image image, IconSize iconSize, {folderPath: String}) {
     Image resizedImage = copyResize(image, iconSize.dimension);
-    new File("${iconSize.name}.png")..writeAsBytesSync(encodePng(resizedImage));
+    String filePath = (folderPath != null) ? "${folderPath}/${iconSize.name}.png" : "${iconSize.name}.png";
+    new File(filePath)..writeAsBytesSync(encodePng(resizedImage));
   }
 
   // Copies a file to @{newFilePath}
@@ -59,6 +61,11 @@ class Helpers {
   // Gets path for current script
   static String getPath() {
     return dirname(Platform.script.path.toString());
+  }
+
+  // Creates a new directory with path
+  static void createDirectory(String path) {
+    new Directory(path).createSync(recursive: true);
   }
 
 }
